@@ -26,6 +26,8 @@ public class SortingApp {
 
     }
 
+    //methode to creates the directory's
+
     public static void createMaps(Path unsorted, Path sorted) {
         try (Stream<Path> subPaths = Files.walk(unsorted, 3)) {
 
@@ -64,6 +66,8 @@ public class SortingApp {
             System.out.println(e.getLocalizedMessage());
         }
     }
+
+    //methode to moves the Files towards the directory's
 
     public static void moveFiles(Path unsorted, Path sorted) {
 
@@ -121,6 +125,8 @@ public class SortingApp {
         }
     }
 
+    //and a methode to make a summary of all the files found and if there readable or writable
+
     public static void makeAReadMe(Path unsorted, Path sorted){
 
         //the file that will hold the summary
@@ -165,4 +171,6 @@ public class SortingApp {
             System.out.println(e.getMessage());
         }
     }
+
+    // i didnt get all the files including the hidden files but got the basic concept of the assignment and will work on my IO in the future.
 }

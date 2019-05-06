@@ -1,0 +1,12 @@
+
+Bsquid:S1075i"&Remove this hard-coded path-delimiter.(Ëïé±ùÿÿÿÿ
+%squid:RedundantThrowsDeclarationCheck"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(œû¿Ø
+>squid:S1905O"'Remove this unnecessary cast to "List".(¤¯ä
+isquid:S00117O"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤¯ä
+Bsquid:S1075o"&Remove this hard-coded path-delimiter.(ÊÃÏğùÿÿÿÿ
+isquid:S00117&"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òÊ•
+Bsquid:S1075h"&Remove this hard-coded path-delimiter.(šıÙÆüÿÿÿÿ
+osquid:S3776‚"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(íñ£Éøÿÿÿÿ
+qsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Â¹¤*
+qsquid:S1192A"UDefine a constant instead of duplicating this literal "something went wrong" 3 times.(¢—½šùÿÿÿÿ
+hsquid:S3776H"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.( ÿÄ'
