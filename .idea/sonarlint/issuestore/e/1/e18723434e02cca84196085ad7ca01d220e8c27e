@@ -1,0 +1,30 @@
+
+Nsquid:S1135z"2Complete the task associated to this TODO comment.(±å¡êÿÿÿÿÿ
+Nsquid:S1135\"2Complete the task associated to this TODO comment.(‚ã¢¡ûÿÿÿÿ
+Csquid:S1075‚"&Remove this hard-coded path-delimiter.(ÊÃÏğùÿÿÿÿ
+osquid:S3776—"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(íñ£Éøÿÿÿÿ
+Isquid:S1135"2Complete the task associated to this TODO comment.(¥ôÈÍ
+Osquid:S1135Ã"2Complete the task associated to this TODO comment.(şÿ¨úÿÿÿÿÿ
+Osquid:S1135«"2Complete the task associated to this TODO comment.(„Ûèıÿÿÿÿ
+Nsquid:S1135Q"2Complete the task associated to this TODO comment.(¨Ï¸úÿÿÿÿ
+Isquid:S1135c"2Complete the task associated to this TODO comment.(ˆ…°Œ
+hsquid:S3776S"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.( ÿÄ'
+Isquid:S1135v"2Complete the task associated to this TODO comment.(Å°½¶
+bsquid:CommentedOutCodeLinec"<This block of commented-out lines of code should be removed.(ˆ…°Œ
+Nsquid:S1135"2Complete the task associated to this TODO comment.(Ìé—™ÿÿÿÿÿ
+qsquid:S1192J"UDefine a constant instead of duplicating this literal "something went wrong" 3 times.(¢—½šùÿÿÿÿ
+Nsquid:S1135V"2Complete the task associated to this TODO comment.(¹©çüúÿÿÿÿ
+Nsquid:S1135D"2Complete the task associated to this TODO comment.(ıÆÙ…ıÿÿÿÿ
+%squid:RedundantThrowsDeclarationCheck"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(œû¿Ø
+Isquid:S1135"2Complete the task associated to this TODO comment.(ÚèÜŒ
+Nsquid:S1135."2Complete the task associated to this TODO comment.(§¥¿‰ûÿÿÿÿ
+isquid:S00117/"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òÊ•
+Isquid:S1135:"2Complete the task associated to this TODO comment.(… ¨¬
+Isquid:S1135š"2Complete the task associated to this TODO comment.(èüÉT
+Jsquid:S1135"2Complete the task associated to this TODO comment.(±µâ‘
+>squid:S1905]"'Remove this unnecessary cast to "List".(è˜Ú
+Osquid:S1135°"2Complete the task associated to this TODO comment.(Õ¸•ÿÿÿÿÿ
+qsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Â¹¤*
+isquid:S00117]"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è˜Ú
+Isquid:S1135"2Complete the task associated to this TODO comment.(«ûæ«
+Bsquid:S1075|"&Remove this hard-coded path-delimiter.(Ëïé±ùÿÿÿÿ

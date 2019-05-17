@@ -14,11 +14,19 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+//TODO: Mooi gebruik van commentaar, dit maakt je code zeer leesbaar.
+
+//TODO: Ik heb een .gitignore gemaakt met daarin de nodige excludes voor user/project specific files.
+// Deze zal de getrackte files niet hiden. Maar dan hebben jullie een template voor het volgende project.
+
+//TODO: Probeer meer aandacht te besteden aan de benaming van je variabelen.
+
 public class SortingApp {
 
+    //TODO: IOExeption wordt nooit gesmeten, dus throws IOException mag weg
     public static void main(String[] args) throws IOException {
-        Path unsort = Paths.get("C:\\Data\\resources\\unsorted");
-        Path sort = Paths.get("C:\\Data\\resources\\sorted");
+        Path unsort = Paths.get("C:/data/unsorted");
+        Path sort = Paths.get("C:/data/sorted");
 
         createMaps(unsort, sort);
         moveFiles(unsort, sort);
@@ -35,9 +43,10 @@ public class SortingApp {
 
             //A List of files in String format for easy manipulation.
 
+            //TODO: Probeer de Java naming convention te volgen, zeer mooi gebruik van lambdas en Streams.
             List<String> SubPathList = subPaths.filter(Files::isRegularFile)
-                    .map(Objects::toString)
-                    .collect(Collectors.toList());
+                                                .map(Objects::toString)
+                                                .collect(Collectors.toList());
 
             //this hashSet will contain all the extension that are present in the above list
 
@@ -46,7 +55,7 @@ public class SortingApp {
             //the following for loop will extract the extension from the files and add them to the above HashSet
 
             for (String list : SubPathList) {
-                int i = list.lastIndexOf('.');
+                int i = list.lastIndexOf('.');  //TODO: Mooi gebruik SonarLint
                 if (i >= 0) {
                     type.add(list.substring(i + 1));
                 }
@@ -56,7 +65,7 @@ public class SortingApp {
             for (String direct : type) {
                 File dir = new File(String.valueOf(sorted.resolve(direct)));
                 if (!dir.exists()) {
-                    dir.mkdir();
+                    dir.mkdir();  //TODO: Probeer iets nuttig te doen met de return van mkdir methode.
 
                 }
             }
@@ -69,18 +78,25 @@ public class SortingApp {
 
     //methode to moves the Files towards the directory's
 
+    //TODO: Probeer de methode in kleinere stukken te verdelen,
+    // deze heeft een te hoge complexiteit wat onderhoud ervan moeilijker zal maken.
     public static void moveFiles(Path unsorted, Path sorted) {
 
-        try(Stream<Path> subPathsUnsort = Files.walk(unsorted, 3);Stream<Path> subPathsSort = Files.walk(sorted)){
+        try(Stream<Path> subPathsUnsort = Files.walk(unsorted, 3);
+            //TODO: subPathsSort is redundant dus deze mag verwijderd worden.
+            Stream<Path> subPathsSort = Files.walk(sorted)){
             //the following code will move the files towards the corresponding directory
 
             //these arrays will contain the files that will move
 
-            List<Path> SubPathListUnsorted = (List<Path>) subPathsUnsort.filter(Files::isRegularFile).collect(Collectors.toList());
+            //TODO: Door je collect(Collectors.toList()) methode is je explicit cast hier overbodig.
+            List<Path> SubPathListUnsorted = (List<Path>) subPathsUnsort.filter(Files::isRegularFile)
+                                                                        .collect(Collectors.toList());
 
             ArrayList<File> files= new ArrayList<>();
 
             for (Path path: SubPathListUnsorted){
+                //TODO: Had ook gekunnen: path.getFileName().toFile();
                 File fileFromPath = new File(String.valueOf(path.getFileName()));
                 files.add(fileFromPath);
             }
@@ -99,9 +115,12 @@ public class SortingApp {
 
                     if (filesToMove.getName().contains(dir.getName().toLowerCase())) {
 
-                        //file1 will hold the old file location and file2 will hold the location of where the file will go
+                        //TODO: Het wordt sterk aangeraden om de klasse Path te gebruiken bij nieuwe code.
+                        // Indien nodig kan je nog steeds de omzetting doen om gebruik te maken van de File methoden.
 
-                        File file1 = new File(unsorted+"\\"+filesToMove);
+                        //file1 will hold the old file location and file2 will hold the location of where the file will go
+                        //TODO: Het wordt afgeraden om hard delimiters te gebruiken vanwege platform onafhankelijkheid
+                        File file1 = unsorted.resolve(filesToMove.toPath()).toFile();
                         File file2 = new File(dir.getAbsolutePath() + "\\" + file1.getName());
 
                         // will check is the file alreadsy exist and if doesnt it will create it
@@ -120,6 +139,8 @@ public class SortingApp {
             }
 
         } catch (IOException | NullPointerException e) {
+            //TODO: java.nio.file.NoSuchFileException: C:\data\unsorted\MagPi01.pdf
+            // Dit komt door de mappen die niet vernoemd worden in je File path.
             System.out.println("something went wrong");
             System.out.println(e.getMessage());
         }
@@ -130,6 +151,7 @@ public class SortingApp {
     public static void makeAReadMe(Path unsorted, Path sorted){
 
         //the file that will hold the summary
+        //TODO: sorted.resolve("Summary.txt").toFile(); was ook mogelijk.
         File read = new File(String.valueOf(sorted.resolve("Summary.txt")));
 
         //the following code will hold the FileWriter and PrintWriter
@@ -146,16 +168,14 @@ public class SortingApp {
             //will check if the file is not null and wil score the according file if its readable and/or writeAble
 
             if(unsorty != null) {
-                for (File files : unsorty){
+                for (File files : unsorty){ //TODO: files als variabele naam zorgt voor verwarring in je code.
 
                     //adds to the summaary.txt
 
                     if (files.canRead()){
-                        if (files.canWrite()){
-                            print.println(files.getName()+" | * | * | ");
-                        }else{
-                            print.println(files.getName()+" | * | / | ");
-                        }
+                        //TODO: Dit was ook een mogelijkheid
+                        String attr = files.canWrite() ? " | * | * | " : " | * | / | ";
+                        print.println(files.getName() + attr);
                     }else if (!files.canRead()) {
                         if (files.canWrite()) {
                             print.println(files.getName() + " | / | * | ");
@@ -171,6 +191,9 @@ public class SortingApp {
             System.out.println(e.getMessage());
         }
     }
+
+    //TODO: Goede effort, probeer echter goed op benamingen en onnodige complexiteit te letten.
+
 
     // i didnt get all the files including the hidden files but got the basic concept of the assignment and will work on my IO in the future.
 }
